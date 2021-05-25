@@ -1,6 +1,6 @@
 class QueueArray {
   constructor() {
-
+    this.items = [];
   }
 
   /**
@@ -9,6 +9,7 @@ class QueueArray {
    * @returns {undefined} 
    */
   enqueue(value) {
+    this.items.push(value)
 
   }
 
@@ -17,6 +18,7 @@ class QueueArray {
    * @returns {any} the value removed
    */
   dequeue() {
+    this.items.shift(value)
 
   }
 
@@ -26,7 +28,7 @@ class QueueArray {
    * @returns {any} the value in the front of the queue
    */
   peek() {
-
+   
   }
 
   /**
@@ -34,6 +36,7 @@ class QueueArray {
    * @returns {boolean} whether the queue is empty
    */
   isEmpty() {
+    return this.items.length == 0;
 
   }
 
