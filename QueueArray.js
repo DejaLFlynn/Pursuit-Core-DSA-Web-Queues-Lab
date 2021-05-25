@@ -28,7 +28,8 @@ class QueueArray {
    * @returns {any} the value in the front of the queue
    */
   peek() {
-   
+    return this.items[0];
+
   }
 
   /**
@@ -44,12 +45,17 @@ class QueueArray {
    * Return an arr with the contents of the queue
    * @returns {array} An array with the elements of queue
    */
-  toArray() {
+  toArray(value) {
+    for(let i =0; i < this.items; i++) {  
+      return this.items[value];  
+    }  
 
   }
 
-  toString() {
-
+  toString(value) {
+    for(let i =0; i < this.items; i++) {  
+      return this.items.toString(value);  
+    }  
   }
 
   static fromArray(arr) {
