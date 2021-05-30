@@ -46,17 +46,47 @@ class QueueArray {
    * @returns {array} An array with the elements of queue
    */
   toArray(value) {
-    for(let i =0; i < this.items; i++) {  
-      return this.items[value];  
-    }  
+    
+      let arr = [];
+      let value = head;
+      while(value){
+        arr.push(value.element);
+        value = value.next;
+      }
+      
+      return arr;
+    
+    
 
   }
 
   toString(value) {
-    for(let i =0; i < this.items; i++) {  
-      return this.items.toString(value);  
-    }  
+    
+    let value = "";
+    for(let i = 0; i < value.length; i++)
+        str += this.items[i] + "<"+ " " + "<=";
+    return str;
+    
+  
   }
+  //  // Lets create a string to add onto 
+  //  let display = "";
+  //  // We need a pointer variable that will start in the head and work its way down
+  //  let pointer = this.head;
+
+  //  // Keep traversing to the next as long as pointer isn't null
+  //  while (pointer !== null) {
+  //    // Update display string 
+  //    display += pointer.value
+  //    if (pointer.next !== null) {
+  //      display += " -> ";
+  //    }
+  //    // Update pointer to the next Node
+  //    pointer = pointer.next;
+  //  }
+
+  //  // Display result
+  //  console.log(display);
 
   static fromArray(arr) {
 
