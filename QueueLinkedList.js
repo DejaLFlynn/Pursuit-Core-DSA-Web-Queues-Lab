@@ -14,43 +14,56 @@ class Node {
   the Queue API methods: .enqueue(), .dequeue(), .peek() and .isEmpty() etc.
 */
 class QueueLinkedList {
-  enqueue(val){
-    let newNode = new Node(val);
-    if(!this.value){
-      this.value = newNode
-      this.next = newNode;
+
+  constructor(){
+    this.length = 0;
+    this.head = null;
+  }
+
+  enqueue(value){
+    let node = new Node(value),
+    current
+    if(this.head === null){
+      this.head = node
     }else{
-      this.next.next = newNode;
-      this.next = newNode;
+      current = this.head;
+      while(current.next){
+        current = current.next;
+      }
+      current.next = node;
+      
     }
+    this.length++
 
   }
   dequeue(){
-    if(!this.value) return null
-    const temp = this.value
-    if(this.value===this.next){
-      this.next = null
+    let current = this.head;
+    if(current){
+      let value = current.value;
+      this.head = current.next;
+      this.length--
+      return value
     }
-    this.value = this.value.next;
-    return temp.val
+     return undefined;
   }
 
   peek(){
-    this.value = function(){
-      if(head){
-        return head.value
+ 
+      if(this.head){
+        return this.head.value
+      }else{
+        return null
       }
-    }
-    return null
+  
   }
    
   isEmpty(){
-    this.val = function(){
-      if(this.value.length == 0){
-
-      }
+    if(this.length === 0){
+      return true;
+    }else{
+      return false;
     }
-    return length === 0
+   
   }
 
 }

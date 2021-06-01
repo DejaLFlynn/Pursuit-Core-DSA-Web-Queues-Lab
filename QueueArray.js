@@ -4,13 +4,12 @@ class QueueArray {
   }
 
   /**
-   * Adds a value to the end queue 
-   * @param {any} value the value to be added 
-   * @returns {undefined} 
+   * Adds a value to the end queue
+   * @param {any} value the value to be added
+   * @returns {undefined}
    */
   enqueue(value) {
-    this.items.push(value)
-
+    this.items.push(value);
   }
 
   /**
@@ -18,8 +17,11 @@ class QueueArray {
    * @returns {any} the value removed
    */
   dequeue() {
-    this.items.shift(value)
-
+   
+    if(this.items.length){
+       return this.items.shift();
+    }
+    return undefined
   }
 
   /**
@@ -29,7 +31,6 @@ class QueueArray {
    */
   peek() {
     return this.items[0];
-
   }
 
   /**
@@ -37,8 +38,11 @@ class QueueArray {
    * @returns {boolean} whether the queue is empty
    */
   isEmpty() {
-    return this.items.length == 0;
-
+    if (this.items.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
@@ -46,38 +50,35 @@ class QueueArray {
    * @returns {array} An array with the elements of queue
    */
   toArray(value) {
-    
-      let arr = [];
-      let value = head;
-      while(value){
-        arr.push(value.element);
-        value = value.next;
-      }
-      
-      return arr;
-    
-    
+    let arr = [];
 
+    while (!this.isEmpty()) {
+      let result = this.dequeue();
+      arr.push(result);
+    }
+    for (let element of arr) {
+      this.enqueue(element);
+    }
+
+    return arr;
   }
 
-  toString(value) {
-    
-    
-    var str = "";
-    for(var i = 0; i < value.length; i++)
-        str += value[i] +" ";
-    return "<" + str + "<=";
+  toString() {
   
+    let inputString = this.toArray()
+   return "< "  + inputString.join(", ") + " <=";
+    
+    // for (var i = 0; i < value.length; i++) 
+      // str += value[i] + " ";
+   
   }
-  
-  
+
   static fromArray(arr) {
 
   }
 }
 
 module.exports = QueueArray;
-
 
 // JavaScript Classes:
 // A blueprint for object.
